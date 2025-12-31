@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ali's Bachelorette | West Palm Beach 2026</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💍</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #1e3a5f;
+            --creme: #f5f0e6;
+            --creamy-white: #faf8f4;
+            --gold-accent: #d4af37;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--creamy-white);
+            color: var(--navy);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(250, 248, 244, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(30, 58, 95, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--navy);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        nav a:hover {
+            color: var(--gold-accent);
+        }
+
+        /* Hero Section */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, var(--navy) 0%, #2c5282 100%);
+            color: var(--creamy-white);
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(245, 240, 230, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .tagline {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            font-weight: 300;
+            margin-bottom: 2rem;
+            font-style: italic;
+            color: var(--creme);
+        }
+
+        .event-details {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .event-details span {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background-color: rgba(245, 240, 230, 0.1);
+            border-radius: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        #confetti-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Countdown Section */
+        #countdown {
+            padding: 4rem 2rem;
+            background-color: var(--creme);
+            text-align: center;
+        }
+
+        #countdown h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 2rem;
+            color: var(--navy);
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .time-unit {
+            background-color: var(--navy);
+            color: var(--creamy-white);
+            padding: 2rem;
+            border-radius: 15px;
+            min-width: 120px;
+            box-shadow: 0 10px 30px rgba(30, 58, 95, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .time-unit:hover {
+            transform: translateY(-5px);
+        }
+
+        .time-value {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .time-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 0.5rem;
+            color: var(--creme);
+        }
+
+        /* Timeline Section */
+        #timeline {
+            padding: 4rem 2rem;
+            background-color: var(--creamy-white);
+        }
+
+        .timeline-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        #timeline h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--navy);
+        }
+
+        .timeline-day {
+            margin-bottom: 2rem;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(30, 58, 95, 0.1);
+            background-color: white;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .timeline-day.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .day-header {
+            background: linear-gradient(135deg, var(--navy) 0%, #2c5282 100%);
+            color: var(--creamy-white);
+            padding: 1.5rem 2rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .day-header:hover {
+            background: linear-gradient(135deg, #2c5282 0%, var(--navy) 100%);
+        }
+
+        .day-header h3 {
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            font-weight: 600;
+        }
+
+        .day-subtitle {
+            font-size: 0.9rem;
+            color: var(--creme);
+            font-weight: 300;
+        }
+
+        .toggle-icon {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-day.active .toggle-icon {
+            transform: rotate(180deg);
+        }
+
+        .day-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.5s ease;
+            background-color: white;
+        }
+
+        .timeline-day.active .day-content {
+            max-height: 1000px;
+            padding: 2rem;
+        }
+
+        .activity {
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            background-color: var(--creme);
+            border-left: 4px solid var(--gold-accent);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .activity:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(30, 58, 95, 0.1);
+        }
+
+        .activity:last-child {
+            margin-bottom: 0;
+        }
+
+        .activity-time {
+            font-weight: 600;
+            color: var(--navy);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .activity-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .activity-description {
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        /* Location Section */
+        #location {
+            padding: 4rem 2rem;
+            background-color: var(--creme);
+        }
+
+        .location-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        #location h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 2rem;
+            color: var(--navy);
+        }
+
+        .location-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(30, 58, 95, 0.1);
+        }
+
+        .location-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .accommodation-box {
+            background-color: var(--creamy-white);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+            border: 2px dashed var(--navy);
+        }
+
+        .accommodation-box h3 {
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .copy-btn {
+            background-color: var(--navy);
+            color: var(--creamy-white);
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            font-weight: 500;
+        }
+
+        .copy-btn:hover {
+            background-color: #2c5282;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(30, 58, 95, 0.3);
+        }
+
+        .copy-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--navy);
+            color: var(--creamy-white);
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        footer p {
+            font-size: 1.2rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            nav a {
+                font-size: 0.75rem;
+            }
+
+            .countdown-timer {
+                gap: 1rem;
+            }
+
+            .time-unit {
+                min-width: 80px;
+                padding: 1.5rem 1rem;
+            }
+
+            .day-header {
+                padding: 1rem 1.5rem;
+            }
+
+            .timeline-day.active .day-content {
+                padding: 1.5rem;
+            }
+
+            .activity {
+                padding: 1rem;
+            }
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: float 2s ease-in-out infinite;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .scroll-indicator svg {
+            width: 30px;
+            height: 30px;
+            fill: var(--creamy-white);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#countdown">Countdown</a></li>
+            <li><a href="#timeline">Schedule</a></li>
+            <li><a href="#location">Location</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <canvas id="confetti-canvas"></canvas>
+        <div class="hero-content">
+            <h1>Ali's Bachelorette</h1>
+            <p class="tagline">One Last Fling Before the Ring! 💎</p>
+            <div class="event-details">
+                <span>📍 West Palm Beach, Florida</span>
+                <span>📅 April 30 - May 3, 2026</span>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Countdown Section -->
+    <section id="countdown">
+        <h2>Countdown to the Celebration</h2>
+        <div class="countdown-timer">
+            <div class="time-unit">
+                <div class="time-value" id="days">000</div>
+                <div class="time-label">Days</div>
+            </div>
+            <div class="time-unit">
+                <div class="time-value" id="hours">00</div>
+                <div class="time-label">Hours</div>
+            </div>
+            <div class="time-unit">
+                <div class="time-value" id="minutes">00</div>
+                <div class="time-label">Minutes</div>
+            </div>
+            <div class="time-unit">
+                <div class="time-value" id="seconds">00</div>
+                <div class="time-label">Seconds</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline">
+        <div class="timeline-container">
+            <h2>Weekend Schedule</h2>
+
+            <!-- Thursday -->
+            <div class="timeline-day" data-day="thursday">
+                <div class="day-header">
+                    <div>
+                        <h3>Thursday, April 30</h3>
+                        <p class="day-subtitle">Arrival Day - Let the Fun Begin!</p>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="day-content">
+                    <div class="activity">
+                        <div class="activity-time">3:00 PM - 5:00 PM</div>
+                        <div class="activity-title">Check-In & Settle In</div>
+                        <div class="activity-description">Arrive at our beautiful West Palm Beach accommodation, get your room keys, and settle into your home for the weekend.</div>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">6:00 PM - 7:00 PM</div>
+                        <div class="activity-title">Welcome Drinks & Gifts</div>
+                        <div class="activity-description">Kick off the weekend with champagne, welcome bags, and getting ready to celebrate our bride-to-be!</div>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">7:30 PM - 10:00 PM</div>
+                        <div class="activity-title">Group Dinner</div>
+                        <div class="activity-description">Enjoy a delicious welcome dinner at a local restaurant. Time to catch up, toast to Ali, and start the celebrations!</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Friday -->
+            <div class="timeline-day" data-day="friday">
+                <div class="day-header">
+                    <div>
+                        <h3>Friday, May 1</h3>
+                        <p class="day-subtitle">Beach Day - Sun, Sand & Relaxation</p>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="day-content">
+                    <div class="activity">
+                        <div class="activity-time">9:00 AM - 10:00 AM</div>
+                        <div class="activity-title">Breakfast Together</div>
+                        <div class="activity-description">Start the day with a leisurely breakfast. Coffee, pastries, and good vibes to fuel our beach day!</div>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">10:30 AM - 2:00 PM</div>
+                        <div class="activity-title">Beach & Pool Time</div>
+                        <div class="activity-description">Soak up the Florida sun! Beach games, swimming, and plenty of photo opportunities. Don't forget your SPF!</div>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">2:30 PM - 5:00 PM</div>
+                        <div class="activity-title">Spa Afternoon</div>
+                        <div class="activity-description">Pamper yourselves with massages, facials, and ultimate relaxation. Because every bride tribe deserves some spa time!</div>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">7:00 PM - 9:00 PM</div>
+                        <div class="activity-title">Group Dinner</div>
+                        <div class="activity-description">Enjoy a fabulous dinner at a waterfront restaurant with ocean views and amazing food.</div>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">9:30 PM - Late</div>
+                        <div class="activity-title">Evening Out</div>
+                        <div class="activity-description">Hit the town! Dancing, drinks, and making unforgettable memories in West Palm Beach.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Saturday -->
+            <div class="timeline-day" data-day="saturday">
+                <div class="day-header">
+                    <div>
+                        <h3>Saturday, May 2</h3>
+                        <p class="day-subtitle">Main Event - The Big Celebration!</p>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="day-content">
+                    <div class="activity">
+                        <div class="activity-time">10:00 AM - 11:30 AM</div>
+                        <div class="activity-title">Brunch</div>
+                        <div class="activity-description">Recover from last night with a delicious brunch. Mimosas mandatory, regrets optional!</div>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">12:00 PM - 4:00 PM</div>
+                        <div class="activity-title">Special Activity</div>
+                        <div class="activity-description">TBD - Could be a boat cruise, wine tasting, cooking class, or another fun group activity! Details to come.</div>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">5:00 PM - 7:00 PM</div>
+                        <div class="activity-title">Getting Ready Together</div>
+                        <div class="activity-description">Hair, makeup, music, and champagne. Time to glam up for our big night out!</div>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">7:30 PM - 10:00 PM</div>
+                        <div class="activity-title">Special Dinner</div>
+                        <div class="activity-description">An elegant dinner at a beautiful restaurant to celebrate Ali in style.</div>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">10:30 PM - Late</div>
+                        <div class="activity-title">Celebration Night</div>
+                        <div class="activity-description">The main event! Dance the night away and make this a night Ali will never forget! 🎉</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sunday -->
+            <div class="timeline-day" data-day="sunday">
+                <div class="day-header">
+                    <div>
+                        <h3>Sunday, May 3</h3>
+                        <p class="day-subtitle">Departure - Until the Wedding!</p>
+                    </div>
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="day-content">
+                    <div class="activity">
+                        <div class="activity-time">9:00 AM - 10:30 AM</div>
+                        <div class="activity-title">Farewell Brunch</div>
+                        <div class="activity-description">One last meal together. Share your favorite moments from the weekend and toast to the bride!</div>
+                    </div>
+                    <div class="activity">
+                        <div class="activity-time">11:00 AM - 12:00 PM</div>
+                        <div class="activity-title">Checkout & Goodbyes</div>
+                        <div class="activity-description">Pack up, exchange hugs, and head home with amazing memories. See you at the wedding! 💕</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location">
+        <div class="location-container">
+            <h2>Location & Travel</h2>
+            <div class="location-content">
+                <p><strong>West Palm Beach, Florida</strong> awaits! Known for its pristine beaches, vibrant nightlife, and year-round sunshine, it's the perfect destination for Ali's bachelorette celebration.</p>
+
+                <p>🌴 Beautiful beaches and crystal-clear waters<br>
+                🍹 Amazing restaurants and bars<br>
+                ☀️ Perfect weather in late April/early May<br>
+                ✈️ Easy to reach via Palm Beach International Airport (PBI)</p>
+
+                <div class="accommodation-box">
+                    <h3>Accommodation Details</h3>
+                    <p><strong>Location:</strong> TBD - Details coming soon!</p>
+                    <p><em>A beautiful beachfront property with plenty of space for everyone</em></p>
+                    <button class="copy-btn" id="copyAddressBtn">Copy Address</button>
+                </div>
+
+                <p style="margin-top: 2rem; font-size: 0.95rem; color: #666;">More detailed travel information, packing lists, and activity details will be shared closer to the date!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Celebrating Ali 💍</p>
+        <p style="font-size: 0.9rem; margin-top: 0.5rem; font-family: 'Poppins', sans-serif; font-weight: 300;">April 30 - May 3, 2026 • West Palm Beach, FL</p>
+    </footer>
+
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const eventDate = new Date('2026-04-30T00:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = days.toString().padStart(3, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+
+            if (distance < 0) {
+                document.querySelector('.countdown-timer').innerHTML = '<h3 style="font-size: 2rem; color: var(--navy);">The celebration is here! 🎉</h3>';
+            }
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // Timeline Accordion
+        document.querySelectorAll('.day-header').forEach(header => {
+            header.addEventListener('click', function() {
+                const timelineDay = this.parentElement;
+                const isActive = timelineDay.classList.contains('active');
+
+                // Close all timeline days
+                document.querySelectorAll('.timeline-day').forEach(day => {
+                    day.classList.remove('active');
+                });
+
+                // Open clicked day if it wasn't active
+                if (!isActive) {
+                    timelineDay.classList.add('active');
+                }
+            });
+        });
+
+        // Scroll animations for timeline
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.timeline-day').forEach(day => {
+            observer.observe(day);
+        });
+
+        // Confetti Animation
+        const canvas = document.getElementById('confetti-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const confetti = [];
+        const confettiCount = 80;
+        const colors = ['#d4af37', '#f5f0e6', '#faf8f4', '#ff69b4', '#87ceeb'];
+
+        class Confetto {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height - canvas.height;
+                this.size = Math.random() * 8 + 4;
+                this.speedY = Math.random() * 1 + 0.5;
+                this.speedX = Math.random() * 1 - 0.5;
+                this.color = colors[Math.floor(Math.random() * colors.length)];
+                this.angle = Math.random() * 360;
+                this.rotationSpeed = Math.random() * 4 - 2;
+            }
+
+            update() {
+                this.y += this.speedY;
+                this.x += this.speedX;
+                this.angle += this.rotationSpeed;
+
+                if (this.y > canvas.height) {
+                    this.y = -10;
+                    this.x = Math.random() * canvas.width;
+                }
+            }
+
+            draw() {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.angle * Math.PI / 180);
+                ctx.fillStyle = this.color;
+                ctx.fillRect(-this.size / 2, -this.size / 2, this.size, this.size);
+                ctx.restore();
+            }
+        }
+
+        for (let i = 0; i < confettiCount; i++) {
+            confetti.push(new Confetto());
+        }
+
+        function animateConfetti() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            confetti.forEach(c => {
+                c.update();
+                c.draw();
+            });
+            requestAnimationFrame(animateConfetti);
+        }
+
+        animateConfetti();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        // Scroll indicator
+        document.querySelector('.scroll-indicator').addEventListener('click', () => {
+            document.querySelector('#countdown').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Copy address button
+        document.getElementById('copyAddressBtn').addEventListener('click', function() {
+            const address = 'TBD - Address will be shared soon!';
+            navigator.clipboard.writeText(address).then(() => {
+                const btn = this;
+                const originalText = btn.textContent;
+                btn.textContent = '✓ Copied!';
+                btn.style.backgroundColor = '#4CAF50';
+
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.backgroundColor = '';
+                }, 2000);
+            }).catch(err => {
+                alert('Address: TBD - Details coming soon!');
+            });
+        });
+
+        // Open first timeline day by default
+        setTimeout(() => {
+            document.querySelector('.timeline-day[data-day="thursday"]').classList.add('active');
+        }, 500);
+    </script>
+</body>
+</html>
