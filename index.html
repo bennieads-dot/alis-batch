@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Amanda's Last Toast | Rosemary Beach 2024</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌴</text></svg>">
+    <title>Ali's Last Toast | West Palm Beach 2026</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👰🏼</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -151,7 +151,7 @@
 
         .bride-name {
             font-family: 'Great Vibes', cursive;
-            font-size: clamp(2rem, 4vw, 3rem);
+            font-size: clamp(2.5rem, 5vw, 4rem);
             color: var(--text-blue);
             margin-bottom: 1rem;
             font-weight: 400;
@@ -166,26 +166,12 @@
             text-transform: uppercase;
         }
 
-        .palm-trees {
-            margin: 1.5rem 0;
-            font-size: 4rem;
-            filter: sepia(0.3) hue-rotate(180deg) saturate(0.8);
-        }
-
         .tagline {
             font-family: 'Great Vibes', cursive;
             font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 400;
             margin: 1.5rem 0;
             color: var(--text-blue);
-        }
-
-        .established {
-            font-size: 1.1rem;
-            letter-spacing: 0.2em;
-            color: var(--text-blue);
-            margin: 1rem 0;
-            text-transform: uppercase;
         }
 
         .event-details {
@@ -201,8 +187,16 @@
             letter-spacing: 0.05em;
         }
 
-        .location-name {
+        .tag-line {
             font-size: clamp(1.3rem, 3vw, 1.8rem);
+            font-weight: 600;
+            margin: 1rem 0;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        .location-name {
+            font-size: clamp(1.2rem, 2.7vw, 1.65rem);
             font-weight: 600;
             margin: 1rem 0;
             text-transform: uppercase;
@@ -221,59 +215,6 @@
             border-top: 1px solid var(--coastal-blue);
             font-size: 0.95rem;
             font-style: italic;
-            color: var(--text-blue);
-        }
-
-        /* Countdown Section */
-        #countdown {
-            padding: 4rem 2rem;
-            background-color: var(--dark-cream);
-            text-align: center;
-        }
-
-        #countdown h2 {
-            font-family: 'Great Vibes', cursive;
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin-bottom: 2rem;
-            color: var(--text-blue);
-            font-weight: 400;
-        }
-
-        .countdown-timer {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .time-unit {
-            background-color: white;
-            color: var(--text-blue);
-            padding: 2rem;
-            border-radius: 8px;
-            min-width: 120px;
-            box-shadow: 0 10px 30px rgba(107, 154, 184, 0.2);
-            transition: transform 0.3s ease;
-            border: 3px solid var(--coastal-blue);
-        }
-
-        .time-unit:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(107, 154, 184, 0.3);
-        }
-
-        .time-value {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 400;
-            font-family: 'Playfair Display', serif;
-            color: var(--coastal-blue);
-        }
-
-        .time-label {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-top: 0.5rem;
             color: var(--text-blue);
         }
 
@@ -340,7 +281,7 @@
             font-family: 'Great Vibes', cursive;
             color: var(--text-blue);
             font-size: clamp(1.8rem, 4vw, 2.8rem);
-            margin-bottom: 1rem;
+            margin-bottom: .5rem;
             font-weight: 400;
         }
 
@@ -357,10 +298,10 @@
         }
 
         .activity {
-            padding: 0.75rem 0;
-            margin-bottom: 0.5rem;
+            padding: 0.25rem 0;
+            margin-bottom: 0.25rem;
             transition: all 0.3s ease;
-            line-height: 1.7;
+            line-height: 1.5;
         }
 
         .activity-description {
@@ -501,25 +442,22 @@
                 font-size: 0.75rem;
             }
 
-            .countdown-timer {
-                gap: 1rem;
-            }
-
             .time-unit {
                 min-width: 80px;
                 padding: 1.5rem 1rem;
             }
 
             .day-header {
-                padding: 1rem 1.5rem;
+                padding: .5rem 1rem;
             }
 
             .timeline-day.active .day-content {
-                padding: 1.5rem;
+                padding: 1rem;
             }
 
             .activity {
-                padding: 1rem;
+                padding: 0.15rem 0;
+                margin-bottom: 0.15rem;
             }
         }
 
@@ -546,7 +484,6 @@
     <nav>
         <ul>
             <li><a href="#hero">Home</a></li>
-            <li><a href="#countdown">Countdown</a></li>
             <li><a href="#timeline">Itinerary</a></li>
             <li><a href="#location">Travel</a></li>
         </ul>
@@ -556,39 +493,13 @@
     <section id="hero">
         <div class="invitation-card">
             <div class="hero-content">
-                <p class="bride-name">Amanda's</p>
-                <h1>LAST TOAST</h1>
-                <div class="palm-trees">🌴🌴🌴</div>
+                <h1>LET'S TOAST</h1>
                 <p class="tagline">On The Coast</p>
-                <p class="established">EST. 96</p>
                 <div class="event-details">
-                    <div class="location-name">Rosemary Beach, Florida</div>
-                    <div class="dates">May 9th - 12th</div>
-                    <div class="rsvp-info">RSVP to Natalie at 123-456-7890</div>
+                    <div class="tag-line">Ali's Bachelorette Weekend</div>
+                    <div class="location-name">West Palm Beach, Florida</div>
+                    <div class="dates">April 30th - May 3rd</div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Countdown Section -->
-    <section id="countdown">
-        <h2>Countdown to the Coast</h2>
-        <div class="countdown-timer">
-            <div class="time-unit">
-                <div class="time-value" id="days">000</div>
-                <div class="time-label">Days</div>
-            </div>
-            <div class="time-unit">
-                <div class="time-value" id="hours">00</div>
-                <div class="time-label">Hours</div>
-            </div>
-            <div class="time-unit">
-                <div class="time-value" id="minutes">00</div>
-                <div class="time-label">Minutes</div>
-            </div>
-            <div class="time-unit">
-                <div class="time-value" id="seconds">00</div>
-                <div class="time-label">Seconds</div>
             </div>
         </div>
     </section>
@@ -597,56 +508,52 @@
     <section id="timeline">
         <div class="timeline-container">
             <h2>Weekend Itinerary</h2>
-            <div class="palm-divider">🌴</div>
-
+            <!-- Thursday -->
+            <div class="timeline-day">
+                <div class="day-header">Thursday</div>
+                <div class="day-content">
+                    <div class="activity">
+                        <div class="activity-description">4pm Airbnb Check-in</div>
+                        <div style="margin-left: 2rem; margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-blue); font-style: italic;">Feel free to arrive anytime after 4pm</div>
+                    </div>
+                </div>
+            </div>
             <!-- Friday -->
             <div class="timeline-day">
                 <div class="day-header">Friday</div>
                 <div class="day-content">
                     <div class="activity">
-                        <div class="activity-description">Girls arrive to Airbnb for check in at 4 PM</div>
+                        <div class="activity-description">9:30am BrideVibe Yoga at the Airbnb </div>
                     </div>
                     <div class="activity">
-                        <div class="activity-description">Dinner at Gram's on Brass River</div>
+                        <div class="activity-description">11:30am Beach day</div>
                     </div>
                     <div class="activity">
-                        <div class="activity-description">Drinks & fun back at the house</div>
+                        <div class="activity-description">7:00pm Dinner at Rocco's Tacos followed by drinks on Clematis Street</div>
+                        <div class="activity-description" style="margin-left: 2rem; margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-blue); font-style: italic;">Theme: Seashells & Wedding Bells</div>
                     </div>
                 </div>
             </div>
-
             <!-- Saturday -->
             <div class="timeline-day">
                 <div class="day-header">Saturday</div>
                 <div class="day-content">
                     <div class="activity">
-                        <div class="activity-description">Brunch at 11 AM</div>
+                        <div class="activity-description">11:30am Boat day</div>
                     </div>
                     <div class="activity">
-                        <div class="activity-description">Group beach day at Mayflower Beach</div>
-                    </div>
-                    <div class="activity">
-                        <div class="activity-description">Dinner at Beachcomber at 7 PM</div>
-                    </div>
-                    <div class="activity">
-                        <div class="activity-description">Ice cream at Sundae School</div>
+                        <div class="activity-description">Dinner & Drinks at the Airbnb</div>
                     </div>
                 </div>
             </div>
-
             <!-- Sunday -->
             <div class="timeline-day">
                 <div class="day-header">Sunday</div>
                 <div class="day-content">
                     <div class="activity">
-                        <div class="activity-description">Farewell breakfast with the bride</div>
+                        <div class="activity-description">10am Airbnb check-out</div>
                     </div>
-                    <div class="activity">
-                        <div class="activity-description">Airbnb check out at 11 AM</div>
-                    </div>
-                    <div class="activity">
-                        <div class="activity-description">Group ride to the airport</div>
-                    </div>
+                    <div style="margin-left: 2rem; margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-blue); font-style: italic;">Suggestion: book early flights home since check-out is early</div>
                 </div>
             </div>
         </div>
@@ -657,56 +564,24 @@
         <div class="location-container">
             <h2>Travel Details</h2>
             <div class="location-content">
-                <p><strong>Rosemary Beach, Florida</strong> is a charming coastal town along scenic Highway 30A, known for its pristine white sand beaches, cobblestone streets, and coastal architecture.</p>
-
-                <p>🌴 Beautiful white sand beaches<br>
-                🏖️ Charming town square and boutiques<br>
-                ☀️ Perfect weather in May<br>
-                ✈️ Nearest airport: Northwest Florida Beaches International (ECP) or Pensacola (PNS)</p>
-
+                <p>West Palm Beach Airport (PBI) 9 minutes from the Airbnb</p>
+                <p>Fort Lauderdale Airport (FLL) 1 hour from the Airbnb</p>
                 <div class="accommodation-box">
-                    <h3>Accommodation</h3>
-                    <p><strong>Airbnb in Rosemary Beach</strong></p>
-                    <p><em>Check-in: Friday, May 9th at 4:00 PM<br>Check-out: Sunday, May 11th at 11:00 AM</em></p>
-                    <button class="copy-btn" id="copyAddressBtn">More Details Coming Soon</button>
+                    <p><strong>Airbnb in West Palm Beach, FL</strong></p>
+                    <p><em>Check-in: Thursday, April 30th at 4:00 PM<br>Check-out: Sunday, May 3rd at 10:00 AM</em></p>
+                    <a href="https://www.airbnb.com/l/xsEs4teN" target="_blank" rel="noopener noreferrer" class="copy-btn" style="display: inline-block; text-decoration: none;">View Airbnb Listing</a>
                 </div>
-
-                <p style="margin-top: 2rem; font-size: 0.9rem;">Questions? Contact Natalie at 123-456-7890</p>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p class="footer-script">Last Toast</p>
-        <p style="font-size: 0.95rem; margin-top: 0.5rem;">May 9th - 12th • Rosemary Beach, FL</p>
-        <p style="font-size: 0.85rem; margin-top: 1rem; opacity: 0.9;">🌴 On The Coast 🌴</p>
+        <p class="footer-script">Let's Toast</p>
+        <p style="font-size: 0.95rem; margin-top: 0.5rem;">April 30th - May 3rd • West Palm Beach, FL</p>
     </footer>
 
     <script>
-        // Countdown Timer
-        function updateCountdown() {
-            const eventDate = new Date('2024-05-09T16:00:00').getTime();
-            const now = new Date().getTime();
-            const distance = eventDate - now;
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById('days').textContent = days.toString().padStart(3, '0');
-            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-
-            if (distance < 0) {
-                document.querySelector('.countdown-timer').innerHTML = '<h3 style="font-size: 2rem; color: var(--text-blue);">The celebration is here! 🎉</h3>';
-            }
-        }
-
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
 
         // Smooth scroll for navigation
         document.querySelectorAll('nav a').forEach(anchor => {
@@ -717,18 +592,6 @@
             });
         });
 
-        // Copy address button
-        document.getElementById('copyAddressBtn').addEventListener('click', function() {
-            const btn = this;
-            const originalText = btn.textContent;
-            btn.textContent = '✓ Noted!';
-            btn.style.backgroundColor = 'var(--text-blue)';
-
-            setTimeout(() => {
-                btn.textContent = originalText;
-                btn.style.backgroundColor = '';
-            }, 2000);
-        });
     </script>
 </body>
 </html>
