@@ -309,6 +309,144 @@
             font-size: 0.95rem;
         }
 
+        /* Gallery Section */
+        #packing {
+            padding: 4rem 2rem;
+            background-color: var(--cream);
+        }
+
+        .packing-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        #packing h2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 2rem;
+            text-align: center;
+            color: var(--text-blue);
+            font-weight: 400;
+        }
+
+        /* Details/Summary Styling */
+        details {
+            margin-bottom: 2rem;
+            background-color: white;
+            border: 8px solid transparent;
+            border-image: repeating-linear-gradient(
+                90deg,
+                var(--coastal-blue) 0px,
+                var(--coastal-blue) 20px,
+                white 20px,
+                white 40px
+            ) 8;
+            box-shadow: 0 15px 40px rgba(107, 154, 184, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        details[open] {
+            box-shadow: 0 20px 60px rgba(107, 154, 184, 0.25);
+        }
+
+        summary {
+            padding: 2rem 2.5rem;
+            cursor: pointer;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            color: var(--text-blue);
+            font-weight: 600;
+            list-style: none;
+            position: relative;
+            user-select: none;
+            transition: all 0.3s ease;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: '+';
+            position: absolute;
+            right: 2.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            font-weight: 300;
+            color: var(--coastal-blue);
+            transition: transform 0.3s ease;
+        }
+
+        details[open] summary::after {
+            content: '−';
+            transform: translateY(-50%) rotate(90deg);
+        }
+
+        summary:hover {
+            color: var(--coastal-blue);
+        }
+
+        .day-theme {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 400;
+            margin-top: 0.5rem;
+            color: var(--text-blue);
+            font-style: italic;
+        }
+
+        /* Image Gallery Grid */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            padding: 2.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            aspect-ratio: 1;
+            background-color: var(--dark-cream);
+            border: 2px solid var(--coastal-blue);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(107, 154, 184, 0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .placeholder-image {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--coastal-blue);
+            background-color: var(--cream);
+        }
+
+        .image-caption {
+            padding: 0.75rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-blue);
+            font-style: italic;
+            background-color: white;
+        }
+
         /* Location Section */
         #location {
             padding: 4rem 2rem;
@@ -486,6 +624,7 @@
             <li><a href="#hero">Home</a></li>
             <li><a href="#timeline">Itinerary</a></li>
             <li><a href="#location">Travel</a></li>
+            <li><a href="#packing">What to pack</a></li>
         </ul>
     </nav>
 
@@ -556,6 +695,97 @@
                     <div style="margin-left: 2rem; margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-blue); font-style: italic;">Suggestion: book early flights home since check-out is early</div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Packing Gallery Section -->
+    <section id="packing">
+        <div class="packing-container">
+            <h2>What to Pack</h2>
+
+            <!-- Day 1 -->
+            <details>
+                <summary>
+                    Thursday
+                    <span class="day-theme">Travel & Welcome Dinner</span>
+                </summary>
+                <div class="image-gallery">
+                    <div class="gallery-item">
+                        <div class="placeholder-image">🌊</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="placeholder-image">👗</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="placeholder-image">👠</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="placeholder-image">💄</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="placeholder-image">👜</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="placeholder-image">🕶️</div>
+                    </div>
+                </div>
+            </details>
+
+            <!-- Day 2 -->
+            <details>
+                <summary>
+                    Friday
+                    <span class="day-theme">Beach Day & Seashells & Wedding Bells</span>
+                </summary>
+                <div class="image-gallery">
+                    <div class="gallery-item">
+                        <div class="placeholder-image">🩱</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="placeholder-image">🐚</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="placeholder-image">🌴</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="placeholder-image">👒</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="placeholder-image">🥂</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="placeholder-image">💍</div>
+                    </div>
+                </div>
+            </details>
+
+            <!-- Day 3 -->
+            <details>
+                <summary>
+                    Saturday
+                    <span class="day-theme">Boat Day & Airbnb Dinner</span>
+                </summary>
+                <div class="image-gallery">
+                    <div class="gallery-item">
+                        <div class="placeholder-image">⛵</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="placeholder-image">🩳</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="placeholder-image">🧴</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="placeholder-image">🍹</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="placeholder-image">📸</div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="placeholder-image">✨</div>
+                    </div>
+                </div>
+            </details>
         </div>
     </section>
 
