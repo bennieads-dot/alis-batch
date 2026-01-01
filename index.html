@@ -413,7 +413,6 @@
 
         .gallery-item {
             position: relative;
-            aspect-ratio: 1;
             background-color: var(--dark-cream);
             border: 2px solid var(--coastal-blue);
             border-radius: 4px;
@@ -428,8 +427,8 @@
 
         .gallery-item img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto;
+            object-fit: contain;
             display: block;
         }
 
@@ -456,7 +455,7 @@
         /* Location Section */
         #location {
             padding: 4rem 2rem;
-            background-color: var(--dark-cream);
+            background-color: var(--cream);
         }
 
         .location-container {
